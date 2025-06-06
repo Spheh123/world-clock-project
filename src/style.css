@@ -54,8 +54,8 @@ select {
 .clocks-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: flex-start;
+  gap: 1rem;
   margin-top: 3rem;
   width: 100%;
 }
@@ -64,10 +64,11 @@ select {
   background: white;
   border-radius: 12px;
   padding: 1.5rem 2rem;
-  width: 250px;
+  width: calc(25% - 1rem);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .city-clock:hover {
@@ -144,8 +145,4 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.city-clock {
-  animation: fadeIn 0.5s ease-out;
 }
