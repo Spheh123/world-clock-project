@@ -1,4 +1,3 @@
-// JavaScript with Moment.js
 document.addEventListener("DOMContentLoaded", function () {
   const citySelect = document.getElementById("cities");
   const clocksContainer = document.querySelector(".clocks-container");
@@ -15,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const clockDiv = document.createElement("div");
     clockDiv.className = "city-clock";
     clockDiv.innerHTML = `
-            <div class="city-header">
-                <h2>${cityName}</h2>
-                <button class="remove-btn">×</button>
-            </div>
-            <div class="time"></div>
-            <div class="date"></div>
-        `;
+                    <div class="city-header">
+                        <h2>${cityName}</h2>
+                        <button class="remove-btn">×</button>
+                    </div>
+                    <div class="time"></div>
+                    <div class="date"></div>
+                `;
 
     // Update time function
     function updateTime() {
