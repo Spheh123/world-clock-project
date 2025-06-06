@@ -1,7 +1,6 @@
-/* src/style.css */
 body {
   font-family: "Arial", sans-serif;
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
   margin: 0;
   padding: 2rem;
@@ -20,7 +19,6 @@ h1 {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 3px solid #f72585;
-  display: inline-block;
 }
 
 .city-selector {
@@ -49,6 +47,7 @@ select {
 
 .clocks-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin-top: 3rem;
@@ -68,10 +67,31 @@ select {
   transform: translateY(-5px);
 }
 
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .city-clock h2 {
   color: #4361ee;
-  margin-bottom: 1rem;
+  margin: 0;
   font-size: 1.3rem;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f72585;
+  transition: transform 0.2s;
+}
+
+.remove-btn:hover {
+  transform: scale(1.3);
+  color: #d90429;
 }
 
 .time {
@@ -101,4 +121,19 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.city-clock {
+  animation: fadeIn 0.5s ease-out;
 }
