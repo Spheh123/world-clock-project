@@ -2,12 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const citySelect = document.getElementById("cities");
   const clocksContainer = document.querySelector(".clocks-container");
 
-  const defaultCities = [
-    { name: "London, UK 🇬🇧", tz: "Europe/London" },
-    { name: "New York, US 🇺🇸", tz: "America/New_York" },
-    { name: "Tokyo, Japan 🇯🇵", tz: "Asia/Tokyo" },
-  ];
-
   function createClockElement(cityName, timezone) {
     const clockDiv = document.createElement("div");
     clockDiv.className = "city-clock";
@@ -41,24 +35,34 @@ document.addEventListener("DOMContentLoaded", function () {
     return clockDiv;
   }
 
-  defaultCities.forEach((city) => {
-    clocksContainer.appendChild(createClockElement(city.name, city.tz));
-  });
-
   citySelect.addEventListener("change", function () {
-    if (!this.value) return;
+    const selectedValue = this.value;
 
-    const cityName = this.options[this.selectedIndex].text;
-    const timezone = this.value;
+    if (!selectedValue) return;
 
-    const existingCities = [...document.querySelectorAll(".city-clock h2")];
-    if (existingCities.some((el) => el.textContent === cityName)) {
-      alert(`${cityName} is already displayed!`);
-      this.value = "";
-      return;
+    clocksContainer.innerHTML = ""; // clear any clocks before showing new
+
+    if (selectedValue === "current-location") {
+      if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        () => {
+          const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          clocksContainer.appendChild(
+            createClockElement("My Location 📍", userTimeZone)
+          );
+        },
+        () => {
+          alert("Unable to retrieve your location.");
+        }
+      );
+    } else {
+      const cityName = this.options[this.selectedIndex].text;
+      clocksContainer.appendChild(createClockElement(cityName, selectedValue));
     }
 
-    clocksContainer.appendChild(createClockElement(cityName, timezone));
-    this.value = "";
+    this.value = ""; // reset dropdown to placeholder
   });
 });
