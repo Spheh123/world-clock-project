@@ -1,0 +1,104 @@
+/* src/style.css */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  color: #2b2d42;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #3a0ca3;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #f72585;
+  display: inline-block;
+}
+
+.city-selector {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  color: #3a0ca3;
+  font-weight: bold;
+}
+
+select {
+  width: 300px;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.clocks-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.city-clock {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  width: 250px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.city-clock:hover {
+  transform: translateY(-5px);
+}
+
+.city-clock h2 {
+  color: #4361ee;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.time {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3a0ca3;
+  margin: 1rem 0;
+  font-family: "Courier New", monospace;
+}
+
+.date {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: #6c757d;
+}
+
+footer a {
+  color: #f72585;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
